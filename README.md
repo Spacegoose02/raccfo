@@ -14,6 +14,7 @@ Each app gets a card with its icon, a plain-language explanation, what it replac
 | --- | --- | --- | --- |
 | BingeBandit | binge.sgiu.net | Movies, shows and live TV | Jellyfin |
 | Cinemask | request.sgiu.net | Ask for a movie or show | Overseerr, Sonarr, Radarr |
+| Wavelength | mhub.sgiu.net | Music, audiobooks, podcasts and radio | |
 | Watchmask | track.sgiu.net | Keep track of what you've watched | Yamtrack |
 | Bookbandit | read.sgiu.net | The family library | Calibre-Web-Automated |
 | Den Duty | chores.sgiu.net | Chores, points and rewards | |
