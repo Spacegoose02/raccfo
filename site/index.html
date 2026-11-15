@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>raccfo · the family den of apps</title>
   <meta name="description" content="Links and downloads for the family's apps, all in one den.">
-  <meta name="theme-color" content="#1b1e33">
+  <meta name="theme-color" content="#070919">
   <meta name="robots" content="noindex">
   <link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="brand/raccfo-180.png">
@@ -14,16 +14,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>try { var t = localStorage.getItem('raccfo-theme'); if (t === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}</script>
 </head>
 <body>
   <a class="skip" href="#apps">Skip to the apps</a>
+  <div class="space" aria-hidden="true"><div class="stars s-far"></div><div class="stars s-mid"></div><div class="stars s-near"></div><div class="shooting"></div></div>
 
   <header class="hero">
     <div class="sky" aria-hidden="true">
       <span class="star s1"></span><span class="star s2"></span><span class="star s3"></span>
       <span class="star s4"></span><span class="star s5"></span><span class="star s6"></span>
     </div>
+    <div class="planet" aria-hidden="true"><span class="ring back"></span><span class="body"></span><span class="ring"></span></div>
     <div class="wrap hero-inner">
+      <button class="theme-toggle" id="theme" type="button"></button>
       <a class="brand" href="./" aria-label="raccfo home">
         <img src="brand/raccfo-mark.svg" alt="" width="64" height="64">
         <span class="wordmark">raccfo</span>

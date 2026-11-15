@@ -5,6 +5,7 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '
 
 const ICONS = {
   open: '<svg viewBox="0 0 24 24"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>',
+  download: '<svg viewBox="0 0 24 24"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg>',
   info: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><path d="M12 7.5v.5"/></svg>',
   android: '<svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2.5"/><path d="M10.5 18h3"/></svg>',
   tv: '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8"/><path d="m9 2 3 3 3-3"/></svg>',
@@ -52,13 +53,29 @@ function peek(app) {
   </button>`;
 }
 
+// The one file to offer for a platform: an installer beats a portable exe, an AppImage beats a .deb.
+const KIND_RANK = ['Installer', 'APK', 'AppImage', 'MSI installer', 'Channel zip', '.deb', '.rpm', 'Portable'];
+function bestFile(files, platform) {
+  const rank = (f) => { const i = KIND_RANK.indexOf(f.kind); return i < 0 ? 99 : i; };
+  return files.filter((f) => f.platform === platform).sort((a, b) => rank(a) - rank(b))[0] || null;
+}
+
 function downloadHint(app) {
   const files = state.downloads[app.slug]?.files || [];
   if (!files.length) return '';
-  const platforms = [...new Set(files.map((f) => f.platform))];
-  const match = platforms.includes(MY);
-  return `<p class="has-dl ${match ? 'match' : ''}">Get the app:
-    <span class="pl">${platforms.map((p) => `<span class="${p === MY ? 'on' : ''}">${PLATFORM_NAMES[p] || p}</span>`).join('')}</span></p>`;
+  const mine = bestFile(files, MY);
+  const others = [...new Set(files.map((f) => f.platform))]
+    .filter((p) => p !== MY)
+    .map((p) => bestFile(files, p));
+  const chips = others
+    .map((f) => `<a href="${esc(f.url)}" rel="noopener" title="${esc(`${f.label} · ${f.kind}`)}">${esc(f.platform === 'tv' ? f.label : PLATFORM_NAMES[f.platform] || f.label)}</a>`)
+    .join('');
+  const big = mine
+    ? `<a class="btn download" href="${esc(mine.url)}" rel="noopener">${ICONS.download}
+        <span><b>Download for ${esc(mine.label)}</b><small>${esc([mine.kind, mine.version, size(mine.size)].filter(Boolean).join(' · '))}</small></span></a>`
+    : '';
+  const rest = chips ? `<p class="has-dl">${mine ? 'Also for' : 'Get the app for'}: <span class="pl">${chips}</span></p>` : '';
+  return big + rest;
 }
 
 function card(app) {
@@ -128,7 +145,8 @@ function downloadsBlock(app) {
   if (!files.length) {
     return `<div><h3>On your phone</h3><p class="note">No separate app needed: open it in your browser and use <b>Add to Home Screen</b> (iPhone) or <b>Install app</b> (Android) to keep it one tap away.</p></div>`;
   }
-  const items = files
+  const items = [...files]
+    .sort((a, b) => (b.platform === MY) - (a.platform === MY))
     .map((f) => {
       const meta = [f.kind, f.version, size(f.size)].filter(Boolean).join(' · ');
       return `<a class="dl ${f.platform === MY ? 'mine' : ''}" href="${esc(f.url)}" rel="noopener">
@@ -251,3 +269,22 @@ window.addEventListener('hashchange', () => {
   const slug = decodeURIComponent(location.hash.slice(1));
   if (slug && state.config) openDetail(slug);
 });
+
+// Space (dark) is the default; the switch remembers a choice of light on this device.
+const SUN = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+const MOON = '<svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>';
+function paintToggle() {
+  const light = document.documentElement.dataset.theme === 'light';
+  const btn = $('#theme');
+  btn.innerHTML = light ? `${MOON} Space` : `${SUN} Light`;
+  btn.setAttribute('aria-label', light ? 'Switch to the space theme' : 'Switch to the light theme');
+  document.querySelector('meta[name="theme-color"]').content = light ? '#1b1e33' : '#070919';
+}
+$('#theme').addEventListener('click', () => {
+  const light = document.documentElement.dataset.theme !== 'light';
+  if (light) document.documentElement.dataset.theme = 'light';
+  else delete document.documentElement.dataset.theme;
+  try { localStorage.setItem('raccfo-theme', light ? 'light' : 'space'); } catch {}
+  paintToggle();
+});
+paintToggle();

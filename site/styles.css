@@ -8,30 +8,34 @@
   --moon-ink: #7a4a00;
   --cream: #f6f3ec;
 
+  --radius: 20px;
+
+  /* Space (default) */
+  --bg: #070919;
+  --surface: rgba(24, 27, 58, .72);
+  --surface-solid: #161936;
+  --surface-2: rgba(255, 255, 255, .06);
+  --ink: #eef0ff;
+  --muted: #a7add6;
+  --line: rgba(160, 170, 255, .16);
+  --accent: #f6b84b;
+  --focus: #9db8ff;
+  --glow: rgba(130, 110, 255, .35);
+  --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .35);
+}
+
+:root[data-theme="light"] {
   --bg: #f6f3ec;
   --surface: #ffffff;
+  --surface-solid: #ffffff;
   --surface-2: #efebe2;
   --ink: #1f2236;
   --muted: #5d6178;
   --line: #e2ddd1;
   --accent: #e0962a;
   --focus: #2f6fed;
+  --glow: rgba(31, 34, 54, .14);
   --shadow: 0 1px 2px rgba(31, 34, 54, .06), 0 8px 24px rgba(31, 34, 54, .08);
-  --radius: 20px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #14162a;
-    --surface: #1e2138;
-    --surface-2: #272b47;
-    --ink: #eceaf4;
-    --muted: #a4a8c0;
-    --line: #2f3352;
-    --accent: #f6b84b;
-    --focus: #8fb2ff;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .3);
-  }
 }
 
 * { box-sizing: border-box; }
@@ -131,11 +135,20 @@ h1, h2, h3, .wordmark { font-family: Fredoka, Nunito, system-ui, sans-serif; let
 .btn .host { font-weight: 600; opacity: .7; font-size: 13px; }
 .has-dl { margin: 0; font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
 .has-dl .pl { display: inline-flex; gap: 4px; }
-.has-dl .pl span { background: var(--surface-2); border-radius: 6px; padding: 1px 6px; font-weight: 700; }
-.has-dl.match .pl span.on { background: var(--moon); color: #3a2400; }
+.has-dl { flex-wrap: wrap; }
+.has-dl .pl { flex-wrap: wrap; }
+.has-dl .pl a { background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 2px 9px; font-weight: 700;
+  text-decoration: none; color: var(--ink); }
+.has-dl .pl a:hover { border-color: var(--muted); }
+.btn.download { width: 100%; justify-content: flex-start; gap: 12px; text-align: left; padding: 10px 14px;
+  background: var(--accent); color: #2b1a00; }
+.btn.download:hover { filter: brightness(1.08); }
+.btn.download svg { width: 22px; height: 22px; flex: none; }
+.btn.download b { display: block; font-size: 15px; line-height: 1.2; }
+.btn.download small { display: block; font-size: 12px; font-weight: 700; opacity: .75; }
 
 /* ---------- detail dialog ---------- */
-dialog { border: 0; padding: 0; color: var(--ink); background: var(--surface); }
+dialog { border: 0; padding: 0; color: var(--ink); background: var(--surface-solid); }
 dialog::backdrop { background: rgba(12, 13, 26, .7); backdrop-filter: blur(3px); }
 #detail { overflow-x: hidden; width: min(920px, 100% - 24px); max-height: calc(100% - 24px); border-radius: 24px; box-shadow: 0 30px 80px rgba(0,0,0,.4); }
 #detail .d-wrap { position: relative; }
@@ -205,3 +218,72 @@ dialog::backdrop { background: rgba(12, 13, 26, .7); backdrop-filter: blur(3px);
 }
 .card .host { margin: 2px 0 0; font-size: 12.5px; color: var(--muted); font-weight: 600; }
 .card .actions .btn.primary { overflow: hidden; text-overflow: ellipsis; }
+
+/* ---------- space theme (default) ---------- */
+/* Fixed sky behind everything: nebula glow plus three layers of stars that twinkle out of step. */
+.space { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
+  background:
+    radial-gradient(900px 600px at 12% 8%, rgba(116, 72, 255, .28), transparent 60%),
+    radial-gradient(800px 700px at 92% 30%, rgba(0, 190, 255, .16), transparent 60%),
+    radial-gradient(900px 700px at 40% 100%, rgba(255, 80, 170, .14), transparent 60%),
+    linear-gradient(180deg, #070919 0%, #0b0d26 50%, #070919 100%); }
+.space .stars { position: absolute; inset: -50%; background-repeat: repeat; }
+.space .s-far { background-image:
+    radial-gradient(1px 1px at 20px 30px, #fff, transparent), radial-gradient(1px 1px at 120px 80px, #cfd8ff, transparent),
+    radial-gradient(1px 1px at 60px 150px, #fff, transparent), radial-gradient(1px 1px at 170px 190px, #ffe9c4, transparent),
+    radial-gradient(1px 1px at 90px 10px, #fff, transparent);
+  background-size: 200px 200px; opacity: .55; }
+.space .s-mid { background-image:
+    radial-gradient(1.5px 1.5px at 40px 60px, #fff, transparent), radial-gradient(1.5px 1.5px at 260px 140px, #bcd0ff, transparent),
+    radial-gradient(1.5px 1.5px at 150px 250px, #fff, transparent);
+  background-size: 320px 320px; opacity: .7; animation: twinkle 6s ease-in-out infinite; }
+.space .s-near { background-image:
+    radial-gradient(2px 2px at 100px 120px, #fff, transparent), radial-gradient(2px 2px at 400px 330px, #ffd98a, transparent);
+  background-size: 520px 520px; opacity: .9; animation: twinkle 9s ease-in-out infinite 2s; }
+.space .shooting { position: absolute; top: 12%; left: -10%; width: 140px; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, transparent, #fff); opacity: 0; transform: rotate(-18deg);
+  animation: shoot 11s ease-in 3s infinite; }
+@keyframes shoot { 0% { opacity: 0; transform: translate(0, 0) rotate(-18deg); } 2% { opacity: 1; }
+  9% { opacity: 0; transform: translate(70vw, -22vh) rotate(-18deg); } 100% { opacity: 0; transform: translate(70vw, -22vh) rotate(-18deg); } }
+@media (prefers-reduced-motion: reduce) { .space .stars, .space .shooting { animation: none; } .space .shooting { display: none; } }
+
+:root:not([data-theme="light"]) .hero { background: transparent; }
+:root:not([data-theme="light"]) .hill,
+:root:not([data-theme="light"]) .hero .sky { display: none; }
+:root[data-theme="light"] .space, :root[data-theme="light"] .planet { display: none; }
+
+/* A ringed planet drifting in the hero's corner. */
+.planet { position: absolute; z-index: 0; right: max(-60px, calc(50% - 680px)); top: 80px; width: 260px; height: 260px; pointer-events: none;
+  animation: drift 18s ease-in-out infinite; }
+.planet .body { position: absolute; inset: 40px; border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #ffd99a 0%, #f6b84b 22%, #c4612f 58%, #4b1d3f 100%);
+  box-shadow: inset -22px -18px 40px rgba(20, 8, 40, .65), 0 0 60px rgba(246, 184, 75, .25); }
+.planet .ring { position: absolute; left: -10px; right: -10px; top: 112px; height: 44px; border-radius: 50%;
+  border: 6px solid rgba(190, 200, 255, .55); border-top-color: transparent; transform: rotate(-16deg);
+  box-shadow: 0 0 18px rgba(160, 170, 255, .25); }
+.planet .ring.back { border-color: rgba(190, 200, 255, .35); border-bottom-color: transparent; z-index: -1; }
+@keyframes drift { 50% { transform: translateY(10px) rotate(2deg); } }
+@media (max-width: 760px) { .planet { width: 150px; height: 150px; top: 20px; right: -30px; opacity: .55; }
+  .planet .body { inset: 24px; } .planet .ring { top: 64px; height: 26px; border-width: 4px; } }
+@media (prefers-reduced-motion: reduce) { .planet { animation: none; } }
+
+:root:not([data-theme="light"]) .card,
+:root:not([data-theme="light"]) .help-card,
+:root:not([data-theme="light"]) .chip { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+:root:not([data-theme="light"]) .card:hover { border-color: rgba(170, 160, 255, .45);
+  box-shadow: 0 0 0 1px rgba(170, 160, 255, .2), 0 14px 40px var(--glow); }
+:root:not([data-theme="light"]) .card .icon { background: #1d2047; }
+:root:not([data-theme="light"]) .btn.primary { background: linear-gradient(135deg, #7b5cff 0%, #3d8bff 100%); color: #fff; }
+:root:not([data-theme="light"]) .chip[aria-pressed="true"] { background: linear-gradient(135deg, #7b5cff 0%, #3d8bff 100%); color: #fff; border-color: transparent; }
+:root:not([data-theme="light"]) .help-card .num { background: linear-gradient(135deg, #7b5cff, #3d8bff); color: #fff; }
+:root:not([data-theme="light"]) .section h2::before { background: linear-gradient(90deg, #7b5cff, #3dd6ff); }
+:root:not([data-theme="light"]) .wordmark::after { background: repeating-linear-gradient(90deg, #a9aec0 0 14px, #7b5cff 14px 24px); }
+:root:not([data-theme="light"]) .badge-new { box-shadow: 0 0 14px rgba(246, 184, 75, .6); }
+:root:not([data-theme="light"]) .chips { margin-top: 8px; }
+
+/* Theme switch */
+.theme-toggle { position: absolute; top: 0; right: 0; z-index: 2; display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255, 255, 255, .1); color: #fff; border: 1px solid rgba(255, 255, 255, .2); border-radius: 999px;
+  padding: 8px 14px; font: 700 14px Nunito, sans-serif; cursor: pointer; }
+.theme-toggle:hover { background: rgba(255, 255, 255, .18); }
+.theme-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
