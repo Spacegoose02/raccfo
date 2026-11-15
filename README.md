@@ -110,4 +110,4 @@ Drop new screenshots in `config/screenshots/<slug>/` and icons in `config/icons/
 
 ## Credits
 
-App icons and most screenshots come from each app's own repository. The raccfo raccoon and the Watchmask placeholder icon were drawn for this repo.
+App icons and most screenshots come from each app's own repository. The raccfo raccoon was drawn for this repo. Watchmask, RaccBoard, Wishes and DenDrop screenshots were taken from the apps running locally with made-up sample data.
