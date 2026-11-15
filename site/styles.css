@@ -135,8 +135,17 @@ h1, h2, h3, .wordmark { font-family: Fredoka, Nunito, system-ui, sans-serif; let
 .btn .host { font-weight: 600; opacity: .7; font-size: 13px; }
 .has-dl { margin: 0; font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
 .has-dl .pl { display: inline-flex; gap: 4px; }
-.has-dl .pl span { background: var(--surface-2); border-radius: 6px; padding: 1px 6px; font-weight: 700; }
-.has-dl.match .pl span.on { background: var(--moon); color: #3a2400; }
+.has-dl { flex-wrap: wrap; }
+.has-dl .pl { flex-wrap: wrap; }
+.has-dl .pl a { background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 2px 9px; font-weight: 700;
+  text-decoration: none; color: var(--ink); }
+.has-dl .pl a:hover { border-color: var(--muted); }
+.btn.download { width: 100%; justify-content: flex-start; gap: 12px; text-align: left; padding: 10px 14px;
+  background: var(--accent); color: #2b1a00; }
+.btn.download:hover { filter: brightness(1.08); }
+.btn.download svg { width: 22px; height: 22px; flex: none; }
+.btn.download b { display: block; font-size: 15px; line-height: 1.2; }
+.btn.download small { display: block; font-size: 12px; font-weight: 700; opacity: .75; }
 
 /* ---------- detail dialog ---------- */
 dialog { border: 0; padding: 0; color: var(--ink); background: var(--surface-solid); }
