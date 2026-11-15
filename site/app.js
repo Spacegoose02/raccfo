@@ -251,3 +251,22 @@ window.addEventListener('hashchange', () => {
   const slug = decodeURIComponent(location.hash.slice(1));
   if (slug && state.config) openDetail(slug);
 });
+
+// Space (dark) is the default; the switch remembers a choice of light on this device.
+const SUN = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+const MOON = '<svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>';
+function paintToggle() {
+  const light = document.documentElement.dataset.theme === 'light';
+  const btn = $('#theme');
+  btn.innerHTML = light ? `${MOON} Space` : `${SUN} Light`;
+  btn.setAttribute('aria-label', light ? 'Switch to the space theme' : 'Switch to the light theme');
+  document.querySelector('meta[name="theme-color"]').content = light ? '#1b1e33' : '#070919';
+}
+$('#theme').addEventListener('click', () => {
+  const light = document.documentElement.dataset.theme !== 'light';
+  if (light) document.documentElement.dataset.theme = 'light';
+  else delete document.documentElement.dataset.theme;
+  try { localStorage.setItem('raccfo-theme', light ? 'light' : 'space'); } catch {}
+  paintToggle();
+});
+paintToggle();
