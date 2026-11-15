@@ -1,0 +1,341 @@
+{
+  "site": {
+    "name": "raccfo",
+    "tagline": "The family den of apps",
+    "intro": "Everything the family uses, in one place. Tap an app to open it, or grab the app for your phone, TV or computer. Same account, same raccoons."
+  },
+  "categories": [
+    {
+      "id": "watch",
+      "name": "Watch & read"
+    },
+    {
+      "id": "home",
+      "name": "Around the house"
+    },
+    {
+      "id": "play",
+      "name": "Play & talk"
+    }
+  ],
+  "apps": [
+    {
+      "slug": "bingebandit",
+      "name": "BingeBandit",
+      "category": "watch",
+      "url": "https://binge.sgiu.net",
+      "icon": "icons/bingebandit.png",
+      "accent": "#3b4252",
+      "tagline": "Movies, shows and live TV",
+      "description": "Our own Netflix. Every movie and show we have, plus live TV with a channel guide. It remembers where you stopped, works on the TV, phone and computer, and kids only see what's OK for them.",
+      "replaces": [
+        "Jellyfin"
+      ],
+      "tips": [
+        "On the TV, pick \"Sign in with a code\" and type the code on your phone.",
+        "Each person gets their own profile, so your Continue Watching stays yours."
+      ],
+      "repo": "Spacegoose02/BingeBandit",
+      "downloads": {
+        "include": "BingeBandit-(TV|Windows|Roku)"
+      },
+      "screenshots": [
+        {
+          "src": "screenshots/bingebandit/home.webp",
+          "caption": "Home: pick up where you left off"
+        },
+        {
+          "src": "screenshots/bingebandit/movie.webp",
+          "caption": "A movie's page"
+        },
+        {
+          "src": "screenshots/bingebandit/live-guide.webp",
+          "caption": "Live TV guide"
+        },
+        {
+          "src": "screenshots/bingebandit/kids.webp",
+          "caption": "Kids only see kid stuff"
+        }
+      ]
+    },
+    {
+      "slug": "cinemask",
+      "name": "Cinemask",
+      "category": "watch",
+      "url": "https://request.sgiu.net",
+      "icon": "icons/cinemask.png",
+      "accent": "#2d6a8a",
+      "tagline": "Ask for a movie or show",
+      "description": "Want something that isn't on BingeBandit yet? Search for it here and hit Request. It shows up on BingeBandit by itself when it's ready, and you can see what's coming soon.",
+      "replaces": [
+        "Overseerr",
+        "Sonarr",
+        "Radarr"
+      ],
+      "tips": [
+        "Search, tap Request, done. You'll see it under My requests.",
+        "You can add it to your phone's home screen from the browser menu."
+      ],
+      "repo": "Spacegoose02/Cinemask",
+      "screenshots": []
+    },
+    {
+      "slug": "watchmask",
+      "name": "Watchmask",
+      "category": "watch",
+      "url": "https://track.sgiu.net",
+      "icon": "icons/watchmask.svg",
+      "accent": "#6b4bd8",
+      "tagline": "Keep track of what you've watched",
+      "description": "A diary for everything you watch, read and play. It fills in by itself from BingeBandit, shows what's next in a series, and gives you a yearly recap.",
+      "replaces": [
+        "Yamtrack"
+      ],
+      "tips": [
+        "Anything you finish on BingeBandit is logged for you."
+      ],
+      "repo": "Spacegoose02/WatchMask",
+      "screenshots": [
+        {
+          "src": "screenshots/watchmask/home.webp",
+          "caption": "What you're watching and what's next"
+        },
+        {
+          "src": "screenshots/watchmask/details.webp",
+          "caption": "Check in a movie or episode"
+        },
+        {
+          "src": "screenshots/watchmask/statistics.webp",
+          "caption": "Your year in numbers"
+        },
+        {
+          "src": "screenshots/watchmask/mobile.webp",
+          "caption": "Works on your phone too"
+        }
+      ]
+    },
+    {
+      "slug": "bookbandit",
+      "name": "Bookbandit",
+      "category": "watch",
+      "url": "https://read.sgiu.net",
+      "icon": "icons/bookbandit.png",
+      "accent": "#1f4e5f",
+      "tagline": "Our family library",
+      "description": "All our ebooks, comics and audiobooks in one library. Read in the browser or the app, and it keeps your place across devices. Kids get their own shelf with stickers, badges and a bedtime lock.",
+      "replaces": [
+        "Calibre-Web-Automated"
+      ],
+      "tips": [
+        "Kids' accounts only show books that are right for their age."
+      ],
+      "repo": "Spacegoose02/bookbandit",
+      "screenshots": [
+        {
+          "src": "screenshots/bookbandit/library.webp",
+          "caption": "The library, with filters"
+        },
+        {
+          "src": "screenshots/bookbandit/reader.webp",
+          "caption": "Reading a book"
+        },
+        {
+          "src": "screenshots/bookbandit/kids-garden.webp",
+          "caption": "Kids grow a reading garden"
+        },
+        {
+          "src": "screenshots/bookbandit/bedtime.webp",
+          "caption": "Bedtime lock"
+        }
+      ]
+    },
+    {
+      "slug": "den-duty",
+      "name": "Den Duty",
+      "category": "home",
+      "url": "https://chores.sgiu.net",
+      "icon": "icons/den-duty.png",
+      "accent": "#e8590c",
+      "tagline": "Chores, points and rewards",
+      "description": "Kids tick off their chores, a grown-up says yes, and points (Shinies) go toward rewards like a pizza night or a trip to the zoo. Runs on the family tablet.",
+      "replaces": [],
+      "tips": [
+        "Kids: tap your raccoon on the tablet to see today's chores."
+      ],
+      "repo": "Spacegoose02/Den-Duty",
+      "screenshots": [
+        {
+          "src": "screenshots/den-duty/kid-board.webp",
+          "caption": "A kid's chore board"
+        },
+        {
+          "src": "screenshots/den-duty/rewards.webp",
+          "caption": "Spend Shinies on rewards"
+        },
+        {
+          "src": "screenshots/den-duty/family-goal.webp",
+          "caption": "A goal the whole family works toward"
+        },
+        {
+          "src": "screenshots/den-duty/chore-editor.webp",
+          "caption": "Grown-ups set up chores"
+        }
+      ]
+    },
+    {
+      "slug": "nighttime-ninja",
+      "name": "Nighttime Ninja",
+      "category": "home",
+      "url": "https://kitchen.sgiu.net",
+      "icon": "icons/nighttime-ninja.png",
+      "accent": "#2f7d4f",
+      "tagline": "Recipes, pantry and shopping list",
+      "description": "Our kitchen helper. Save recipes from any website, keep the shopping list everyone can add to, plan the week's meals, and see what you can cook with what's in the pantry.",
+      "replaces": [
+        "KitchenOwl"
+      ],
+      "tips": [
+        "Type \"2 lb chicken, milk, 3 avocados\" and it adds them all at once."
+      ],
+      "repo": "Spacegoose02/Nighttime-Ninja",
+      "screenshots": [
+        {
+          "src": "screenshots/nighttime-ninja/recipes.webp",
+          "caption": "The recipe book"
+        },
+        {
+          "src": "screenshots/nighttime-ninja/shopping.webp",
+          "caption": "The shopping list on a phone"
+        }
+      ]
+    },
+    {
+      "slug": "raccboard",
+      "name": "RaccBoard",
+      "category": "home",
+      "url": "https://todo.sgiu.net",
+      "icon": "icons/raccboard.png",
+      "accent": "#12a08a",
+      "tagline": "To-do lists and projects",
+      "description": "Boards and cards for to-do lists, packing lists and room-by-room house projects. Drag cards between lists, add checklists and due dates, and see it all on a calendar.",
+      "replaces": [
+        "Vikunja"
+      ],
+      "tips": [
+        "Press ? on a keyboard to see the shortcuts."
+      ],
+      "repo": "Spacegoose02/raccboard",
+      "screenshots": [
+        {
+          "src": "screenshots/raccboard/board.webp",
+          "caption": "A board for house projects"
+        },
+        {
+          "src": "screenshots/raccboard/card.webp",
+          "caption": "Checklists, dates and labels on a card"
+        },
+        {
+          "src": "screenshots/raccboard/calendar.webp",
+          "caption": "Everything on a calendar"
+        }
+      ]
+    },
+    {
+      "slug": "wishes",
+      "name": "Wishes",
+      "category": "home",
+      "url": "https://wishes.sgiu.net",
+      "icon": "icons/wishes.png",
+      "accent": "#f0643c",
+      "tagline": "Family wish lists",
+      "description": "Birthday and holiday wish lists for kids and grown-ups. Paste a link and it fills in the picture and price. Mark something as \"I'll get it\" so nobody buys the same thing, and the person it's for never sees it.",
+      "replaces": [],
+      "tips": [
+        "Prices are checked for you and you get a heads-up when something goes on sale."
+      ],
+      "repo": "Spacegoose02/wishes",
+      "screenshots": [
+        {
+          "src": "screenshots/wishes/dream-board.webp",
+          "caption": "A wish list as a dream board"
+        },
+        {
+          "src": "screenshots/wishes/home.webp",
+          "caption": "Countdown to the next birthday"
+        }
+      ]
+    },
+    {
+      "slug": "weather-scout",
+      "name": "Weather Scout",
+      "category": "home",
+      "url": "https://wx.sgiu.net",
+      "icon": "icons/weather-scout.png",
+      "accent": "#2f80ed",
+      "tagline": "Kid-friendly weather",
+      "description": "Our own weather station with radar, alerts and a 10-day forecast. Rocky the raccoon tells kids what to wear and keeps them calm when storms roll in.",
+      "replaces": [],
+      "tips": [
+        "Tap the raccoon button for the kids' view, with games and weather school."
+      ],
+      "repo": "Spacegoose02/weather-scout",
+      "screenshots": [
+        {
+          "src": "screenshots/weather-scout/widget.webp",
+          "caption": "Today at a glance"
+        }
+      ]
+    },
+    {
+      "slug": "lootden",
+      "name": "LootDen",
+      "category": "play",
+      "url": "https://gm.sgiu.net",
+      "icon": "icons/lootden.png",
+      "accent": "#7a3cff",
+      "tagline": "Our game library",
+      "description": "Our shelf of PC and retro games. Install the LootDen app on your computer or handheld and download any game with one click. It tracks play time and keeps saves in sync.",
+      "replaces": [
+        "GameVault",
+        "RomM"
+      ],
+      "tips": [
+        "Get the desktop app below, sign in, and hit Install on any game."
+      ],
+      "repo": "Spacegoose02/lootden",
+      "downloads": {
+        "exclude": "cli|playnite"
+      },
+      "screenshots": []
+    },
+    {
+      "slug": "dendrop",
+      "name": "DenDrop",
+      "category": "play",
+      "url": "https://drop.sgiu.net",
+      "icon": "icons/dendrop.png",
+      "accent": "#3a3f4b",
+      "tagline": "Family chat and calls",
+      "description": "Our own private group chat. Send messages, photos and voice notes, start a video call, or hang out in a voice channel. Only family and friends we invite can get in.",
+      "replaces": [],
+      "isNew": true,
+      "tips": [
+        "Get the phone app so you get notified about new messages."
+      ],
+      "repo": "Spacegoose02/dendrop",
+      "downloads": {
+        "exclude": "debug"
+      },
+      "screenshots": [
+        {
+          "src": "screenshots/dendrop/chat.webp",
+          "caption": "The family server"
+        },
+        {
+          "src": "screenshots/dendrop/phone.webp",
+          "caption": "Chatting on a phone"
+        }
+      ]
+    }
+  ]
+}

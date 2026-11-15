@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>raccfo · the family den of apps</title>
+  <meta name="description" content="Links and downloads for the family's apps, all in one den.">
+  <meta name="theme-color" content="#1b1e33">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="brand/raccfo-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#apps">Skip to the apps</a>
+
+  <header class="hero">
+    <div class="sky" aria-hidden="true">
+      <span class="star s1"></span><span class="star s2"></span><span class="star s3"></span>
+      <span class="star s4"></span><span class="star s5"></span><span class="star s6"></span>
+    </div>
+    <div class="wrap hero-inner">
+      <a class="brand" href="./" aria-label="raccfo home">
+        <img src="brand/raccfo-mark.svg" alt="" width="64" height="64">
+        <span class="wordmark">raccfo</span>
+      </a>
+      <h1 id="tagline">The family den of apps</h1>
+      <p id="intro" class="intro">Everything the family uses, in one place.</p>
+      <div class="hero-actions">
+        <label class="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="q" type="search" placeholder="Find an app… (try “chores” or “movies”)" autocomplete="off" aria-label="Find an app">
+        </label>
+        <p class="device" id="device" hidden></p>
+      </div>
+    </div>
+    <svg class="hill" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 80V40C240 0 480 0 720 30s480 40 720 0v50Z"/></svg>
+  </header>
+
+  <main id="apps" class="wrap">
+    <nav class="chips" id="chips" aria-label="Filter apps"></nav>
+    <div id="sections"></div>
+    <p class="empty" id="empty" hidden>No app matches that. Try another word?</p>
+  </main>
+
+  <section class="wrap help" aria-labelledby="help-h">
+    <h2 id="help-h">New to the den?</h2>
+    <div class="help-grid">
+      <div class="help-card">
+        <span class="num">1</span>
+        <h3>Open it in your browser</h3>
+        <p>Every app works from a web browser on your phone, tablet or computer. Tap <b>Open</b> on any card.</p>
+      </div>
+      <div class="help-card">
+        <span class="num">2</span>
+        <h3>Or put it on your home screen</h3>
+        <p>On iPhone: Share, then <b>Add to Home Screen</b>. On Android: the ⋮ menu, then <b>Install app</b>. It then opens like a real app.</p>
+      </div>
+      <div class="help-card">
+        <span class="num">3</span>
+        <h3>Get the app, where there is one</h3>
+        <p>Some apps have their own app for Android, the TV or Windows. Look for <b>Get the app</b> on the card. On Android, allow “install unknown apps” for your browser the first time.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap foot">
+    <img src="brand/raccfo-mark.svg" alt="" width="28" height="28">
+    <span>raccfo · run by raccoons, for the family</span>
+  </footer>
+
+  <dialog id="detail" aria-labelledby="d-name">
+    <div class="d-wrap">
+      <button class="close" data-close aria-label="Close">×</button>
+      <div id="d-body"></div>
+    </div>
+  </dialog>
+
+  <dialog id="viewer" class="viewer" aria-label="Screenshot">
+    <button class="close" data-close aria-label="Close">×</button>
+    <button class="nav prev" aria-label="Previous screenshot">‹</button>
+    <figure><img id="v-img" alt=""><figcaption id="v-cap"></figcaption></figure>
+    <button class="nav next" aria-label="Next screenshot">›</button>
+  </dialog>
+
+  <noscript><p class="wrap">raccfo needs JavaScript turned on to show the apps.</p></noscript>
+  <script src="app.js" defer></script>
+</body>
+</html>

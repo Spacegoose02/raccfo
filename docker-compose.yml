@@ -1,0 +1,18 @@
+services:
+  raccfo:
+    image: ghcr.io/spacegoose02/raccfo:latest
+    # Or build it yourself from this folder:
+    # build: .
+    container_name: raccfo
+    restart: unless-stopped
+    ports:
+      - "8642:8080"
+    environment:
+      TZ: America/New_York
+      # How long to remember what's on each app's GitHub releases page.
+      RELEASE_CACHE_MINUTES: "60"
+      # Optional: a read-only GitHub token raises the API limit from 60 to 5000 calls an hour.
+      # GITHUB_TOKEN: ""
+    volumes:
+      # Put your own apps.json, icons/ and screenshots/ here to change the site without rebuilding.
+      - ./config:/config
