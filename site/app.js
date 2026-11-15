@@ -122,6 +122,9 @@ function renderChips() {
 function downloadsBlock(app) {
   const d = state.downloads[app.slug];
   const files = d?.files || [];
+  if (!files.length && d?.error) {
+    return `<div><h3>Get the app</h3><p class="note">Couldn't check for app downloads just now. <a href="${esc(d.releasesUrl)}" rel="noopener">See all downloads on GitHub</a>.</p></div>`;
+  }
   if (!files.length) {
     return `<div><h3>On your phone</h3><p class="note">No separate app needed: open it in your browser and use <b>Add to Home Screen</b> (iPhone) or <b>Install app</b> (Android) to keep it one tap away.</p></div>`;
   }

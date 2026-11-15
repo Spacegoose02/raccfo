@@ -58,7 +58,7 @@ function describeAsset(name) {
   }
   if (n.includes('roku')) return { platform: 'tv', label: 'Roku', kind: 'Channel zip' };
   if (n.endsWith('.exe') || n.endsWith('.msi')) {
-    const kind = n.includes('portable') ? 'Portable' : n.endsWith('.msi') ? 'MSI installer' : 'Installer';
+    const kind = n.endsWith('.msi') ? 'MSI installer' : /setup|install/.test(n) ? 'Installer' : 'Portable';
     return { platform: 'windows', label: 'Windows', kind };
   }
   if (n.endsWith('.dmg') || n.endsWith('.pkg')) return { platform: 'mac', label: 'Mac', kind: 'Installer' };

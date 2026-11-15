@@ -7,7 +7,7 @@
   "categories": [
     {
       "id": "watch",
-      "name": "Watch & read"
+      "name": "Watch, listen & read"
     },
     {
       "id": "home",
@@ -78,6 +78,40 @@
       ],
       "repo": "Spacegoose02/Cinemask",
       "screenshots": []
+    },
+    {
+      "slug": "wavelength",
+      "name": "Wavelength",
+      "category": "watch",
+      "url": "https://mhub.sgiu.net",
+      "icon": "icons/wavelength.png",
+      "accent": "#1d1b3a",
+      "tagline": "All our music, audiobooks and radio",
+      "description": "One music player for everything we have: our music library, audiobooks, podcasts and internet radio. See what's hot on the charts, save albums for offline listening, and dress it up with retro skins. Works on the computer, phone, tablet and TV.",
+      "replaces": [],
+      "tips": [
+        "Get the app below, then sign in with the address mhub.sgiu.net.",
+        "Download albums or playlists before a trip so they play with no signal."
+      ],
+      "repo": "Spacegoose02/wavelength",
+      "screenshots": [
+        {
+          "src": "screenshots/wavelength/discover.webp",
+          "caption": "Discover: what's hot right now"
+        },
+        {
+          "src": "screenshots/wavelength/radio.webp",
+          "caption": "Internet radio stations"
+        },
+        {
+          "src": "screenshots/wavelength/audiobook.webp",
+          "caption": "Audiobooks pick up where you stopped"
+        },
+        {
+          "src": "screenshots/wavelength/skins.webp",
+          "caption": "Pick a skin"
+        }
+      ]
     },
     {
       "slug": "watchmask",

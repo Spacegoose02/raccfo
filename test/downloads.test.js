@@ -38,3 +38,14 @@ test('portable and installer exes are both offered', () => {
   const got = pickDownloads([rel('v1', ['DenDuty-Setup.exe', 'DenDuty-Portable.exe', 'BookBandit-1-windows-x64.msi'])]);
   assert.deepEqual(got.map((d) => d.kind).sort(), ['Installer', 'MSI installer', 'Portable']);
 });
+
+test('Wavelength: setup and plain exe, AppImage, deb, dmg and APK; signatures and updater archives skipped', () => {
+  const got = pickDownloads([rel('v1.4.0', [
+    'Wavelength_1.4.0_x64-setup.exe', 'Wavelength_1.4.0_x64-setup.exe.sig', 'Wavelength.exe',
+    'Wavelength_1.4.0_amd64.AppImage', 'Wavelength_1.4.0_amd64.AppImage.sig', 'Wavelength_1.4.0_amd64.deb',
+    'Wavelength_1.4.0_universal.dmg', 'Wavelength.app.tar.gz', 'Wavelength-1.4.0-android.apk',
+  ])]);
+  assert.deepEqual(got.map((d) => `${d.label}/${d.kind}`), [
+    'Android/APK', 'Windows/Installer', 'Windows/Portable', 'Mac/Installer', 'Linux/AppImage', 'Linux/.deb',
+  ]);
+});
