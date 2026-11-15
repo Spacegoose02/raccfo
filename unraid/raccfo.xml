@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>raccfo</Name>
+  <Repository>ghcr.io/spacegoose02/raccfo:latest</Repository>
+  <Registry>https://github.com/Spacegoose02/raccfo/pkgs/container/raccfo</Registry>
+  <Network>bridge</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/Spacegoose02/raccfo/issues</Support>
+  <Project>https://github.com/Spacegoose02/raccfo</Project>
+  <Overview>raccfo: the family den of apps. A raccoon-themed start page with a card for each of the family's self-hosted apps: what it does, what it replaces, screenshots, a link to open it, and the latest Android, TV and Windows downloads pulled from each app's GitHub releases.</Overview>
+  <Category>Productivity: Tools: Other:</Category>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <Icon>https://raw.githubusercontent.com/Spacegoose02/raccfo/main/site/brand/raccfo-512.png</Icon>
+  <Config Name="Web UI Port" Target="8080" Default="8642" Mode="tcp" Description="Port for the site. Point your reverse proxy here." Type="Port" Display="always" Required="true" Mask="false">8642</Config>
+  <Config Name="Config" Target="/config" Default="/mnt/user/appdata/raccfo" Mode="ro" Description="Optional apps.json, icons/ and screenshots/ that override the built-in ones. Can stay empty." Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/raccfo</Config>
+  <Config Name="Release cache minutes" Target="RELEASE_CACHE_MINUTES" Default="60" Mode="" Description="How long to remember each app's GitHub releases before checking again" Type="Variable" Display="advanced" Required="false" Mask="false">60</Config>
+  <Config Name="GitHub token" Target="GITHUB_TOKEN" Default="" Mode="" Description="Optional read-only token. Raises GitHub's limit from 60 to 5000 calls an hour." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+  <Config Name="TZ" Target="TZ" Default="America/New_York" Mode="" Description="Time zone" Type="Variable" Display="advanced" Required="false" Mask="false">America/New_York</Config>
+</Container>

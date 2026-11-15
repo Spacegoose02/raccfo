@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="raccfo raccoon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b2f4a"/>
+      <stop offset="1" stop-color="#171a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <!-- moon -->
+  <circle cx="210" cy="44" r="15" fill="#f6b84b"/>
+  <circle cx="218" cy="38" r="13" fill="#262a43"/>
+  <!-- ears -->
+  <path d="M54 118 C50 84 56 58 70 52 C84 46 104 66 118 86 Z" fill="#f3f1ec"/>
+  <path d="M202 118 C206 84 200 58 186 52 C172 46 152 66 138 86 Z" fill="#f3f1ec"/>
+  <path d="M64 112 C62 88 66 68 74 64 C84 60 98 74 108 88 Z" fill="#3a3e55"/>
+  <path d="M192 112 C194 88 190 68 182 64 C172 60 158 74 148 88 Z" fill="#3a3e55"/>
+  <!-- head -->
+  <path d="M128 72 C78 72 46 104 42 146 C40 168 56 186 78 196 L128 222 L178 196 C200 186 216 168 214 146 C210 104 178 72 128 72 Z" fill="#a9aec0"/>
+  <!-- white face -->
+  <path d="M128 112 C100 112 70 126 60 150 C70 176 98 196 128 214 C158 196 186 176 196 150 C186 126 156 112 128 112 Z" fill="#f3f1ec"/>
+  <!-- brow stripe -->
+  <path d="M128 76 C120 90 120 108 128 124 C136 108 136 90 128 76 Z" fill="#3a3e55"/>
+  <!-- mask -->
+  <path d="M46 142 C58 124 84 120 106 128 Q128 136 150 128 C172 120 198 124 210 142 C200 162 178 170 158 164 Q140 158 128 170 Q116 158 98 164 C78 170 56 162 46 142 Z" fill="#1f2236"/>
+  <!-- eyes -->
+  <circle cx="94" cy="144" r="11" fill="#f6b84b"/>
+  <circle cx="162" cy="144" r="11" fill="#f6b84b"/>
+  <circle cx="96" cy="145" r="5" fill="#1f2236"/>
+  <circle cx="164" cy="145" r="5" fill="#1f2236"/>
+  <circle cx="91" cy="140" r="2.6" fill="#fff"/>
+  <circle cx="159" cy="140" r="2.6" fill="#fff"/>
+  <!-- nose + mouth -->
+  <path d="M116 182 Q128 176 140 182 Q136 194 128 196 Q120 194 116 182 Z" fill="#1f2236"/>
+  <path d="M128 196 L128 204 M118 206 Q128 212 138 206" stroke="#1f2236" stroke-width="4" stroke-linecap="round" fill="none"/>
+</svg>
