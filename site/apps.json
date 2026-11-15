@@ -118,7 +118,7 @@
       "name": "Watchmask",
       "category": "watch",
       "url": "https://track.sgiu.net",
-      "icon": "icons/watchmask.svg",
+      "icon": "icons/watchmask.png",
       "accent": "#6b4bd8",
       "tagline": "Keep track of what you've watched",
       "description": "A diary for everything you watch, read and play. It fills in by itself from BingeBandit, shows what's next in a series, and gives you a yearly recap.",
@@ -135,12 +135,12 @@
           "caption": "What you're watching and what's next"
         },
         {
-          "src": "screenshots/watchmask/details.webp",
-          "caption": "Check in a movie or episode"
+          "src": "screenshots/watchmask/movies.webp",
+          "caption": "Your movies, with ratings"
         },
         {
-          "src": "screenshots/watchmask/statistics.webp",
-          "caption": "Your year in numbers"
+          "src": "screenshots/watchmask/details.webp",
+          "caption": "A movie and when you watched it"
         },
         {
           "src": "screenshots/watchmask/mobile.webp",
